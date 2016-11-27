@@ -11,16 +11,19 @@ using namespace std;
 int main()
 {
 	Stos s(3);
-	s.pop(17);
+	Stos s1(s);
+	s1.pop(100);
+/*	s.pop(17);
 	s.pop(27);
 	s.pop(37);
 	cout << s;
 	cout << s.push() << endl;
 	s.pop(77);
 	cout << s;
+	//s1.pop(100);
 	s.pop(37);
 	cout << s.push() << endl;
-	cout << s;
+	cout << s;	*/
 	system("pause");
     return 0;
 }

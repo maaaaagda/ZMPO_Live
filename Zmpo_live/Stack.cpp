@@ -3,18 +3,7 @@
 #include "iostream"
 #include <string> 
 using namespace std;
-Stos::Stos(Stos &pcOther)
-{
 
-	tab = new float(pcOther.getRozmiar());
-	rozmiar = pcOther.getRozmiar();
-	ile = pcOther.ile;
-	for (int i = 0; i < pcOther.rozmiar; i++)
-	{
-		set(tab[i], pcOther.get(i));
-	}
-
-}
 bool Stos::pop(float k)
 {
 	if (ile < rozmiar)
@@ -60,6 +49,20 @@ void Stos::set(int n, float p)
 {
 	 tab[n] = p;
 }
+Stos::Stos(Stos &pcOther)
+{
+	if (rozmiar != 0) delete[] tab;
+	cout << pcOther.getRozmiar()<<endl;
+	cout << pcOther.ile << endl;
+	tab = new float(pcOther.getRozmiar());
+	rozmiar = pcOther.getRozmiar();
+	ile = pcOther.ile;
+	for (int i = 0; i < pcOther.rozmiar; i++)
+	{
+		tab[i]=pcOther.tab[i];
+	}
+
+}
 void Stos::operator = (Stos &other)
 {
 	if (rozmiar != 0) delete[] tab;
@@ -68,7 +71,7 @@ void Stos::operator = (Stos &other)
 	rozmiar = other.ile;
 	for (int i = 0; i < other.rozmiar; i++)
 	{
-		set(tab[i], other.get(i));
+		tab[i] = other.tab[i];
 	}
 }
 bool Stos::operator == (Stos &other)
